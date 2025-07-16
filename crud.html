@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curd Document</title>
+    <link rel="stylesheet" href="curd.css" />
+</head>
+<body>
+    
+    <h1>Employees Crud</h1>
+   <form id="employeeform">
+    <input type="text" id="employee" placeholder="employee name" required>
+    <input type="text" id="employeeTitle" placeholder="employee title" required>
+    <button type="submit">Add employee</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Employee name</th>
+            <th>employee title</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody id="employee list">
+
+    </tbody>
+</table>
+
+<script>
+    function addEmployee() {
+  const name = document.getElementById("empName").value;
+  const id = document.getElementById("empId").value;
+  const dept = document.getElementById("empDept").value;
+
+  if (!name || !id || !dept) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  const table = document.getElementById("employeeTable");
+
+  const newRow = table.insertRow(-1);
+
+  const nameCell = newRow.insertCell(0);
+  const idCell = newRow.insertCell(1);
+  const deptCell = newRow.insertCell(2);
+
+  nameCell.textContent = name;
+  idCell.textContent = id;
+  deptCell.textContent = dept;
+
+  // Clear input fields
+  document.getElementById("empName").value = "";
+  document.getElementById("empId").value = "";
+  document.getElementById("empDept").value = "";
+}
+</script>
+</body>
+</html>
